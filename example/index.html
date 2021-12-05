@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <title>Straight skeleton</title>
+        <style>
+            * {
+                font-family: monospace;
+            }
+
+            .controls {
+                text-align: center;
+                margin: 16px 0;
+            }
+
+            .description {
+                text-align: center;
+            }
+
+            button {
+                cursor: pointer;
+            }
+
+            canvas {
+                margin: 16px auto;
+                border: 1px solid #aaa;
+                display: block;
+                max-width: 100%;
+            }
+        </style>
+    <script defer src="./main.js"></script></head>
+    <body>
+        <div class="panel">
+            <div class="controls">
+                <button id="button-outer">Switch to drawing outer polygon</button>
+                <button id="button-inner">Switch to drawing holes</button>
+                <button id="button-clear">Clear all</button>
+            </div>
+            <div class="description">Left-click to add points.</div>
+        </div>
+        <div id="wrapper">
+            <canvas id="canvas"></canvas>
+        </div>
+    </body>
+</html>

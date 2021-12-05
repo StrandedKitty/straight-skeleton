@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "es6",
+		"lib": [
+			"es6",
+			"dom"
+		],
+		"sourceMap": true,
+
+		"noUnusedLocals": true,
+		"downlevelIteration": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": true
+	},
+	"include": [
+		"src/example"
+	]
+}
