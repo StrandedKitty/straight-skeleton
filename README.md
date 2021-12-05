@@ -9,6 +9,10 @@ implementation](https://github.com/reinterpretcat/csharp-libs/tree/master/straig
 
 This port, like the original library, doesn't rely on any external math libs. There were no major changes made to the original code structure. Some utility classes and interfaces which serve as a replacement for corresponding C# ones can be found in `Utils.ts`.
 
+## Demo
+
+[Live playground](https://vhawk.github.io/straight-skeleton/example/)
+
 ## Installation
 
 `npm i straight-skeleton`
