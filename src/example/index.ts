@@ -106,8 +106,6 @@ canvas.addEventListener('pointerdown', e => {
 
 	if (!holeMode) {
 		points.push([x, y]);
-
-		console.log(JSON.stringify(points, null, '\t'))
 	} else {
 		const currentHole = holes[activeHoleId];
 
