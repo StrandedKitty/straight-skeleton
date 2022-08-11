@@ -11,7 +11,7 @@ This port, like the original library, doesn't rely on any external math libs. Th
 
 ## Demo
 
-[Live playground](https://vhawk.github.io/straight-skeleton/example/)
+[Live playground](https://strandedkitty.github.io/straight-skeleton/example/)
 
 ## Installation
 
