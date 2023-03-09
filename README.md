@@ -22,7 +22,7 @@ This port, like the original library, doesn't rely on any external math libs. Th
 This port supports [GeoJSON multipolygons](https://geojson.org/geojson-spec.html#multipolygon) as input.
 
 ```typescript
-import SkeletonBuilder from 'straight-skeleton';
+import {SkeletonBuilder} from 'straight-skeleton';
 
 const skeleton = SkeletonBuilder.BuildFromGeoJSON([[
 	[[0, 0], [100, 0], [100, 50], [0, 50]],    // outer
@@ -32,13 +32,13 @@ const skeleton = SkeletonBuilder.BuildFromGeoJSON([[
 for (const edgeResult of s.Edges) {
 	// A list of 2D points representing a polygon adjacent to the edge.
 	const polygon = edgeResult.Polygon;
-	...
+	// ...
 }
 
 // If you want to construct 3D roofs you also need the height data produced by the builder.
 for (const [pointPos, distance] of s.Distances) {
-	// `distance` is the height of the point located on coordinates `pointPos`.
-	...
+	// `distance` is the elevation of the vertex located on `pointPos`.
+	// ...
 }
 ```
 

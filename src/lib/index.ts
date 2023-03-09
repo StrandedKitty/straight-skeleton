@@ -6,5 +6,4 @@ import EdgeResult from "./EdgeResult";
 import Edge from "./Circular/Edge";
 import Vertex from "./Circular/Vertex";
 
-export default SkeletonBuilder;
-export {List, Vector2d, GeoJSONMultipolygon, Skeleton, EdgeResult, Edge, Vertex};
+export {SkeletonBuilder, List, Vector2d, GeoJSONMultipolygon, Skeleton, EdgeResult, Edge, Vertex};
