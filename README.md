@@ -2,12 +2,8 @@
 
 ![](https://i.imgur.com/ecT8io4.png)
 
-This is a TypeScript port of [C# straight skeleton
-implementation](https://github.com/reinterpretcat/csharp-libs/tree/master/straight_skeleton).
-
-> Implementation of straight skeleton algorithm for polygons with holes. It is based on concept of tracking bisector intersection with queue of events to process and circular list with processed events called lavs. This implementation is highly modified concept described by Petr Felkel and Stepan Obdrzalek. In compare to original this algorithm has new kind of event and support for multiple events which appear in the same distance from edges. It is common when processing degenerate cases caused by polygon with right angles.
-
-This port, like the original library, doesn't rely on any external math libs. There were no major changes made to the original code structure. Some utility classes and interfaces which serve as a replacement for corresponding C# ones can be found in `Utils.ts`.
+This is a TypeScript library that wraps the basic functionality of CGAL's [straight skeleton implementation](https://doc.cgal.org/latest/Straight_skeleton_2/index.html) using Wasm (WebAssembly).
+You can use this library to generate unweighted straight skeletons of polygons with or without holes.
 
 ## Demo
 
@@ -19,7 +15,7 @@ This port, like the original library, doesn't rely on any external math libs. Th
 
 ## Usage
 
-This port supports [GeoJSON multipolygons](https://geojson.org/geojson-spec.html#multipolygon) as input.
+This port supports both [GeoJSON polygons](https://geojson.org/geojson-spec.html#polygon) and simple arrays of 2D points.
 
 ```typescript
 import {SkeletonBuilder} from 'straight-skeleton';
@@ -42,6 +38,10 @@ for (const [pointPos, distance] of s.Distances) {
 }
 ```
 
+## Development
+
+
+
 ## References
 
-* [Original C# straight skeleton implementation by reinterpretcat](https://github.com/reinterpretcat/csharp-libs/tree/master/straight_skeleton)
+* [CGAL straight skeleton user manual](https://doc.cgal.org/latest/Straight_skeleton_2/index.html)
