@@ -69,6 +69,11 @@ export class SkeletonBuilder {
 		this.module.HEAPU8.set(new Uint8Array(inputBuffer), inputPtr);
 
 		const ptr = this.module._create_straight_skeleton(inputPtr);
+
+		if (ptr === 0) {
+			return null;
+		}
+
 		let offset = ptr / 4;
 		const arrayU32 = this.module.HEAPU32;
 		const arrayF32 = this.module.HEAPF32;

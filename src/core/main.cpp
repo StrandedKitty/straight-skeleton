@@ -1,5 +1,5 @@
 #ifdef EMSCRIPTEN
-#define CGAL_ALWAYS_ROUND_TO_NEAREST
+//#define CGAL_ALWAYS_ROUND_TO_NEAREST
 #define CGAL_NO_ASSERTIONS
 #define CGAL_NO_PRECONDITIONS
 #define CGAL_NO_POSTCONDITIONS
@@ -95,6 +95,10 @@ SsPtr generate_skeleton(void *data) {
 // of its vertices (also uint32_t).
 // The last value is 0.
 void *serialize_skeleton(SsPtr iss) {
+	if (iss == nullptr) {
+		return nullptr;
+	}
+
 	std::unordered_map<Ss::Vertex_const_handle, int> vertex_map;
 	std::vector<std::tuple<float, float, float>> vertices;
 
