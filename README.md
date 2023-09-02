@@ -15,32 +15,68 @@ You can use this library to generate unweighted straight skeletons of polygons w
 
 ## Usage
 
-This port supports both [GeoJSON polygons](https://geojson.org/geojson-spec.html#polygon) and simple arrays of 2D points.
+This library supports both arrays of points (`SkeletonBuilder.buildFromPolygon`) and [GeoJSON polygons](https://datatracker.ietf.org/doc/html/rfc7946#autoid-15) (`SkeletonBuilder.buildFromGeoJSON`).
+
+### Input data requirements
+
+- Input polygon must have at least one ring.
+- The first ring is always the outer ring, and the rest are inner rings.
+- Outer rings must be counter-clockwise oriented and inner rings must be clockwise oriented.
+- All rings must be weakly simple.
+- Each ring must have a duplicate of the first vertex at the end.
 
 ```typescript
 import {SkeletonBuilder} from 'straight-skeleton';
 
-const skeleton = SkeletonBuilder.BuildFromGeoJSON([[
-	[[0, 0], [100, 0], [100, 50], [0, 50]],    // outer
-	[[50, 30], [70, 30], [70, 20], [50, 20]],  // inner
-]]);
+// Contains two rings: outer and inner.
+const polygon = [
+	[
+		[-1, -1],
+		[0, -12],
+		[1, -1],
+		[12, 0],
+		[1, 1],
+		[0, 12],
+		[-1, 1],
+		[-12, 0],
+		[-1, -1]
+	], [
+		[-1, 0],
+		[0, 1],
+		[1, 0],
+		[0, -1],
+		[-1, 0]
+	]
+];
 
-for (const edgeResult of s.Edges) {
-	// A list of 2D points representing a polygon adjacent to the edge.
-	const polygon = edgeResult.Polygon;
-	// ...
-}
-
-// If you want to construct 3D roofs you also need the height data produced by the builder.
-for (const [pointPos, distance] of s.Distances) {
-	// `distance` is the elevation of the vertex located on `pointPos`.
-	// ...
-}
+// Initialize the Wasm module by calling init() once.
+SkeletonBuilder.init().then(() => {
+    const result = SkeletonBuilder.buildFromPolygon(polygon);
+	
+	// Check if the skeleton was successfully constructed
+	if (result !== null) {
+		for (const vertex of result.vertices) {
+			// Do something with vertices
+		}
+		
+		for (const polygon of result.polygons) {
+			// Do something with polygons
+		}
+	}
+});
 ```
 
 ## Development
 
-
+1. Clone this repository.
+2. Run `npm i` to install dependencies.
+3. Optionally, rebuild the Wasm module:
+   1. Install [Emscripten](https://emscripten.org/docs/getting_started/downloads.html) and make that it's in your PATH.
+   2. `cd src/core`, then `sh ./install_libraries.sh` to download and unpack all dependencies.
+   3. `mkdir build && cd build` to create a build directory.
+   4. `emcmake cmake ..` to generate the build files.
+   5. `emmake make` to build the Wasm module. Rerun this whenever your .cpp files change.
+4. Run `npm run build` to build the library or `npm run dev` to start a development server that watches for changes.
 
 ## References
 
