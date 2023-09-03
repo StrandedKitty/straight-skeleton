@@ -1,6 +1,0 @@
-node_modules
-.idea
-.DS_Store
-src/core/build/*
-!src/core/build/*.js
-src/core/lib

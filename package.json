@@ -4,6 +4,12 @@
 	"description": "Straight skeleton algorithm",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE",
+		"package.json"
+	],
 	"author": "StrandedKitty",
 	"license": "MIT",
 	"repository": {
@@ -21,16 +27,14 @@
 		"@types/geojson-validation": "^1.0.0",
 		"@types/three": "^0.155.1",
 		"clean-webpack-plugin": "^4.0.0",
+		"earcut": "^2.2.4",
+		"geojson-validation": "^1.0.2",
 		"html-webpack-plugin": "^5.5.0",
+		"three": "^0.150.1",
 		"ts-loader": "^9.2.6",
 		"typescript": "^4.5.2",
 		"webpack": "^5.64.4",
 		"webpack-cli": "^4.9.1",
 		"webpack-dev-server": "^4.6.0"
-	},
-	"dependencies": {
-		"earcut": "^2.2.4",
-		"geojson-validation": "^1.0.2",
-		"three": "^0.150.1"
 	}
 }
