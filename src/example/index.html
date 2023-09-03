@@ -3,44 +3,110 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <title>Straight skeleton</title>
+        <title>Straight skeleton demo</title>
+        <meta name="description" content="WebAssembly (Wasm) wrapper for CGAL straight skeleton algorithm">
         <style>
             * {
                 font-family: monospace;
+                box-sizing: border-box;
             }
 
-            .controls {
-                text-align: center;
-                margin: 16px 0;
+            body {
+                margin: 0;
             }
 
-            .description {
+            h2 {
                 text-align: center;
+                margin: 12px 0;
+            }
+
+            .links {
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: row;
             }
 
             button {
                 cursor: pointer;
             }
 
+            .controls {
+                width: 50%;
+                padding: 8px 24px 24px 24px;
+            }
+
+            .preview {
+                width: 50%;
+                padding: 8px 24px 24px 24px;
+            }
+
+            textarea {
+                width: 100%;
+                height: 600px;
+                resize: none;
+            }
+
+            #update {
+                margin: 8px 0;
+            }
+
             canvas {
-                margin: 16px auto;
-                border: 1px solid #aaa;
-                display: block;
-                max-width: 100%;
+                width: 100%;
+                height: 350px;
+                background: #eee;
+            }
+
+            .btns {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                margin: 0 0 8px 0;
+            }
+
+            .sample {
+                font-size: 12px;
+                margin: 0 8px 0 0;
+            }
+
+            .btns-bottom {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
         </style>
     </head>
     <body>
-        <div class="panel">
+        <h2>straight-skeleton</h2>
+        <span class="links">
+            <a href="https://github.com/strandedkitty/straight-skeleton" target="_blank">github</a> |
+            <a href="https://www.npmjs.com/package/straight-skeleton" target="_blank">npm</a>
+        </span>
+        <div class="container">
             <div class="controls">
-                <button id="button-outer">Switch to drawing outer polygon</button>
-                <button id="button-inner">Switch to drawing holes</button>
-                <button id="button-clear">Clear all</button>
+                <p>GeoJSON Polygon input</p>
+                <div class="btns">
+                    <button class="sample" data-sample="0">Sample polygon #1</button>
+                    <button class="sample" data-sample="1">Sample polygon #2</button>
+                    <button class="sample" data-sample="2">Sample polygon #3</button>
+                </div>
+                <textarea id="input" ></textarea>
+                <div class="btns-bottom">
+                    <span>Last update took <span id="time"></span></span>
+                    <button id="update">Update straight skeleton</button>
+                </div>
             </div>
-            <div class="description">Left-click to add points.</div>
-        </div>
-        <div id="wrapper">
-            <canvas id="canvas"></canvas>
+            <div class="preview">
+                <p>2D straight skeleton preview</p>
+                <canvas id="canvas2d"></canvas>
+                <p>3D straight skeleton preview</p>
+                <canvas id="canvas3d"></canvas>
+            </div>
         </div>
     </body>
 </html>

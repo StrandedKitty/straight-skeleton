@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/CGAL-5.6/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/boost_1_81_0)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/libigl-2.4.0/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/gmp-6.2.1)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/mpfr-4.2.0/src)
 

@@ -1,25 +1,36 @@
 {
 	"name": "straight-skeleton",
 	"version": "1.1.0",
-	"description": "Straight skeleton algorithm implementation",
+	"description": "Straight skeleton algorithm",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"author": "StrandedKitty",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/StrandedKitty/straight-skeleton"
+	},
 	"scripts": {
 		"build": "webpack --config webpack.config.js --mode=production",
 		"dev": "webpack serve --config webpack.config.js --mode=development",
-		"prepublish": "npm run build && npm run build-example"
+		"prepublish": "npm run build"
 	},
-	"author": "vHawk",
-	"license": "MIT",
 	"devDependencies": {
+		"@types/earcut": "^2.1.1",
 		"@types/geojson": "^7946.0.10",
+		"@types/geojson-validation": "^1.0.0",
+		"@types/three": "^0.155.1",
 		"clean-webpack-plugin": "^4.0.0",
 		"html-webpack-plugin": "^5.5.0",
-		"path-browserify": "^1.0.1",
 		"ts-loader": "^9.2.6",
 		"typescript": "^4.5.2",
 		"webpack": "^5.64.4",
 		"webpack-cli": "^4.9.1",
 		"webpack-dev-server": "^4.6.0"
+	},
+	"dependencies": {
+		"earcut": "^2.2.4",
+		"geojson-validation": "^1.0.2",
+		"three": "^0.150.1"
 	}
 }

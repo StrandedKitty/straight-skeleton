@@ -160,7 +160,7 @@ extern "C" {
 	EMSCRIPTEN_KEEPALIVE
 	void *create_straight_skeleton(void *data) {
 		SsPtr skeleton = generate_skeleton(data);
-		//CGAL::Straight_skeletons_2::IO::print_straight_skeleton(*skel);
+
 		return serialize_skeleton(skeleton);
 	}
 }
