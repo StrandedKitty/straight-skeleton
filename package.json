@@ -13,7 +13,7 @@
 	"scripts": {
 		"build": "webpack --config webpack.config.js --mode=production",
 		"dev": "webpack serve --config webpack.config.js --mode=development",
-		"prepublish": "npm run build"
+		"prepare": "npm run build"
 	},
 	"devDependencies": {
 		"@types/earcut": "^2.1.1",
