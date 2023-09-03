@@ -2,5 +2,6 @@ node_modules
 .idea
 .DS_Store
 dist
-src/core/build
+src/core/build/*
+!src/core/build/*.js
 src/core/lib
