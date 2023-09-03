@@ -223,6 +223,11 @@ SkeletonBuilder.init().then(() => {
 			return;
 		}
 
+		if (skeleton === null) {
+			alert('Wasm module returned null');
+			return;
+		}
+
 		const endTime = performance.now();
 
 		document.getElementById('time').innerHTML = `${(endTime - startTime).toFixed(2)} ms`;
